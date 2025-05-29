@@ -2,10 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <LangVersion>1</LangVersion>
-    <!-- Must disable these as they assume newer C# -->
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Must disable this as it assumes C# 2 or later -->
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
