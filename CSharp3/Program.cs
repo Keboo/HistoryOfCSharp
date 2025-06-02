@@ -17,12 +17,15 @@ namespace CSharp3
                 new PhoneBox { Number = "555-555-5555" }
             };
 
-            // Using LINQ to filter phone numbers that start with "509"
             var filteredNumbers = phoneBoxes
-                .Where(pb => pb.AreaCode == "509")
+                .Where(pb => pb.GetAreaCode() == "509")
                 .Select(pb => pb.Number);
 
-            // Display the filtered phone numbers
+            filteredNumbers
+                = from pb in phoneBoxes
+                  where pb.GetAreaCode() == "509"
+                  select pb.Number;
+   
             foreach (var number in filteredNumbers)
             {
                 Console.WriteLine(number);
@@ -33,13 +36,13 @@ namespace CSharp3
     class PhoneBox
     {
         public string Number { get; set; }
+    }
 
-        public string AreaCode
+    static class PhoneBoxExtensions
+    {
+        public static string GetAreaCode(this PhoneBox phoneBox)
         {
-            get
-            {
-                return Number.Substring(0, 3);
-            }
+            return phoneBox.Number.Substring(0, 3);
         }
     }
 }
