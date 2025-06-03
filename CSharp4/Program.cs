@@ -4,15 +4,19 @@ using System.Collections.Generic;
 
 namespace CSharp4
 {
-
     class Program
     {
+        private static IEnumerable<Condiment> GetCondiments(string prefix, int count = 2)
+        {
+            yield return new HorseRadish();
+            yield return new Relish();
+        }
+        
         static void Main(string[] args)
         {
-            IEnumerable<Condiment> condiments = GetCondiments();
-            IEnumerable<object> objects = condiments;
+            IEnumerable<Condiment> condiments = GetCondiments(prefix: "v", count: 2);
 
-            foreach (dynamic thingy in objects)
+            foreach (dynamic thingy in condiments)
             {
                 Print(thingy);
             }
@@ -22,16 +26,9 @@ namespace CSharp4
         {
             Console.WriteLine("Horse Radish");
         }
-
         private static void Print(Relish relish)
         {
             Console.WriteLine("Relish");
-        }
-
-        private static IEnumerable<Condiment> GetCondiments()
-        {
-            yield return new HorseRadish();
-            yield return new Relish();
         }
     }
 

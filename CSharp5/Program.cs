@@ -16,11 +16,11 @@ namespace CSharp5
             await DoWorkAsync();
         }
 
-        static async Task DoWorkAsync([CallerMemberName] string caller = null)
+        static async Task DoWorkAsync()
         {
-            Console.WriteLine("Started in method: {0}", caller);
-            await Task.Delay(1000); 
-            Console.WriteLine("Async work completed.");
+            Console.WriteLine("{0} Started in method", DateTime.Now);
+            await Task.Delay(1001);
+            Console.WriteLine("{0} Async work completed", DateTime.Now);
         }
     }
 }

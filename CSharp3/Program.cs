@@ -4,6 +4,11 @@ using System;
 
 namespace CSharp3
 {
+    class PhoneBox
+    {
+        public string Number { get; set; }
+    }
+    
     class Program
     {
         static void Main(string[] args)
@@ -25,7 +30,7 @@ namespace CSharp3
                 = from pb in phoneBoxes
                   where pb.GetAreaCode() == "509"
                   select pb.Number;
-   
+
             foreach (var number in filteredNumbers)
             {
                 Console.WriteLine(number);
@@ -33,10 +38,6 @@ namespace CSharp3
         }
     }
 
-    class PhoneBox
-    {
-        public string Number { get; set; }
-    }
 
     static class PhoneBoxExtensions
     {

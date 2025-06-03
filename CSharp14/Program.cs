@@ -1,5 +1,4 @@
-﻿#!/usr/bin/dotnet run
-#:property LangVersion preview
+﻿#:property LangVersion preview
 
 Person? p = null;
 p?.Name = "John";
@@ -8,8 +7,6 @@ p.DisplayName();
 p = new() { Name = "Jane" };
 p.DisplayName();
 
-
-Console.WriteLine(nameof(List<>));
 Console.WriteLine(Guid.NewBestGuid());
 
 class Person

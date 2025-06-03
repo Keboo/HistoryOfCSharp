@@ -6,45 +6,18 @@ namespace CSharp6
     {
         public static void Main(string[] args)
         {
-            // String interpolation, null propagator, static import
             Person p = null;
-            WriteLine($"Person's name: {p?.Name ?? "No person"}");
+            WriteLine($"Name: {p?.Name ?? "No name"}");
 
-            p = new Person(age: 30) { Name = "Alice" };
-            WriteLine($"Person info: {p}");
-
-            // nameof operator
-            WriteLine($"Property name: {nameof(Person.Name)}");
-
-            try
-            {
-                new Person(-1);
-            }
-            catch (System.Exception ex) when (ex.Message.Contains("negative"))
-            {
-                WriteLine($"Caught exception with filter: {ex.Message}");
-            }
+            p = new Person() { Name = "Alice", Age = 30 };
+            WriteLine($"Person: {p}");
         }
-
     }
     class Person
     {
         public string Name { get; set; } = "Unknown";
-        public int? Age { get; set; } = 0;
+        public int Age { get; set; } = 0;
 
-        public Person(int? age)
-        { 
-            Age = ValidateAge(age ?? 0);
-        }
-
-        static int ValidateAge(int value)
-        {
-            if (value < 0)
-            {
-                throw new System.ArgumentException("Value cannot be negative");
-            }
-            return value;
-        }
-        public override string ToString() => $"{Name}, Age: {Age?.ToString() ?? "N/A"}";
+        public override string ToString() => $"{Name}, {nameof(Age)}: {Age}";
     }
 }

@@ -19,8 +19,6 @@ namespace CSharp8
             int[] middle = numbers[1..^1]; // from index 1 to last-1
             Console.WriteLine($"Last: {last}, Middle: {string.Join(",", middle)}");
 
-            using FileStream fileStream = File.OpenWrite("example.txt");
-
             IAsyncEnumerable<IShape?> shapes = GetShapesAsync();
             await foreach (IShape? shape in shapes)
             {
