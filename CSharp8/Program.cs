@@ -13,7 +13,6 @@ namespace CSharp8
             message ??= "Hello, C# 8!";
             Console.WriteLine(message);
 
-            // Indices and ranges
             int[] numbers = { 1, 2, 3, 4, 5 };
             int last = numbers[^1]; // ^1 is the last element
             int[] middle = numbers[1..^1]; // from index 1 to last-1
@@ -34,8 +33,6 @@ namespace CSharp8
                     Circle c => $"Circle: Radius {c.Radius}",
                     _ => "Unknown shape"
                 });
-
-                Console.WriteLine(shape?.Suffix() ?? "");
             }
 
             static async IAsyncEnumerable<IShape?> GetShapesAsync()
@@ -66,13 +63,9 @@ namespace CSharp8
         public Circle(int radius) => Radius = radius;
         public int Radius { get; }
         public int Edges => 0;
-
-        public string? Suffix() => " round";
     }
     interface IShape
     {
         int Edges { get; }
-
-        string? Suffix() => null;
     }
 }

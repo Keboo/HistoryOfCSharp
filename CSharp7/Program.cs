@@ -29,9 +29,5 @@ class Program
                 Console.WriteLine("Product is of an unknown type");
                 break;
         }
-
-        int bin = 0b0110_1011;
-        int big = 1_000_000;
-        Console.WriteLine($"Binary: 0x{bin:X}, Big: {big:N0}");
     }
 }

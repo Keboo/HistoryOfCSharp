@@ -14,7 +14,7 @@ namespace CSharp4
         
         static void Main(string[] args)
         {
-            IEnumerable<Condiment> condiments = GetCondiments(prefix: "v", count: 2);
+            IEnumerable<Condiment> condiments = GetCondiments(prefix: "v");
 
             foreach (dynamic thingy in condiments)
             {
